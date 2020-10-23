@@ -1,15 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const Task = new Schema({
+const Card = new Schema({
     nome: {
         type: String,
         required: true
     },
-    card: {
+    empresa: {
         type: Schema.Types.ObjectId,
-        ref: 'Card'
+        ref: 'Empresa'
     }
 });
 
-module.exports = mongoose.model('Task', Task);
+module.exports = mongoose.model('Card', Card);

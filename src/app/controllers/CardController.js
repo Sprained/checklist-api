@@ -1,6 +1,6 @@
 const Yup = require('yup');
 
-const Task = require('../schema/Task');
+const Card = require('../schema/Card');
 
 module.exports = {
     async register(req, res) {
@@ -15,12 +15,12 @@ module.exports = {
 
         const { nome } = req.body;
 
-        await Task.create({ nome, card: req.params.id })
+        await Card.create({ nome, empresa: req.params.id })
 
-        return res.status(201).json({ message: 'Tarefa cadastrada com sucesso!' })
+        return res.status(201).json({ message: 'Card cadastrado com sucesso!' })
     },
     async index(req, res) {
-        const empresas = await Task.find({ card: req.params.id });
+        const empresas = await Card.find({ empresa: req.params.id });
 
         return res.json(empresas)
     }
